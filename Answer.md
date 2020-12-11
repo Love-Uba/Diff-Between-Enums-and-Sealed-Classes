@@ -8,6 +8,8 @@ It is most convenient to define an extension function,
 
 import java.math.BigDecimal
 //Enum Declaration
+
+
 enum class carChoices {
     TOYOTA,
     HONDA,
@@ -15,6 +17,7 @@ enum class carChoices {
 
     var fee: BigDecimal = BigDecimal.ZERO
 }
+
 fun carChoices.checkFee(transaction: TransactionData) {
     when (this) {
         carChoices.HONDA -> showCarChoiceInfo(transaction)
@@ -25,7 +28,8 @@ fun carChoices.checkFee(transaction: TransactionData) {
         }
     }
 }
-//in the main function
+
+
 fun main() {
     val car1 = carChoices.HONDA
     val car2 = carChoices.TOYOTA
@@ -46,7 +50,10 @@ What sealed modifier does is that it is impossible to define another subclass of
 outside of the file.
 
 import java.math.BigDecimal
+
 //Sealed class 
+
+
 sealed class CarRental
 data class RentToyota(val fee: BigDecimal, val rentalId: Int): CarRental()
 data class RentBenz(val fee: BigDecimal, val rentalId: Int, ): CarRental()
