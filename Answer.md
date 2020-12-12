@@ -24,19 +24,6 @@ fun carChoices.checkFee(transaction: TransactionData) {
         }
     }
 }
-
-
-fun main() {
-    val car1 = carChoices.HONDA
-    val car2 = carChoices.TOYOTA
-    print(car1 == car2) // This is TRUE, because it is the same object
-
-    car1.fee = BigDecimal.TEN
-    print(car2.fee) // 10
-
-    val total = carChoices.CHEVROLET
-    print(total.fee) // 0, because `fee` is per-item
-}
 ```
 **Sealed Classes** are abstract classes with a concrete number of subclasses all defined. The advantage of sealed classes over enum is that subclasses can hold instance-specific data. Each item can be either a class or an object (created using the object declaration). What sealed modifier does is that it is impossible to define another subclass of this class outside of the file.
 
@@ -54,13 +41,13 @@ data class RentAcura(val fee: BigDecimal, val rentalId: Int): CarRental()
 fun process(rental: CarRental) {
     val rentalReceipt = when (rental) {
         is RentToyota -> {
-            showCarInfo(rental.fee, rental.rentalId)
+            println("Renting Toyota")
         }
         is RentBenz -> {
-            showCarInfo(rental.fee, rental.rentalId)
+            println("Renting Benz")
         }
         is RentAcura -> {
-            showCarInfo(rental.fee, rental.rentalId)
+            println("Renting Acura")
         }
     }
     println(rentalReceipt)
