@@ -1,11 +1,13 @@
+The Difference between Enums and Sealed Classes
 Enums are represent a constant set of possible options or a concrete set of constant values 
 hold values that are always item-specific.The power of enum is that those items are specific 
 and constant. Therefore we can get all the items using values() function, or by type using 
 enumValueOf function.
 We can also read enum from String using valueOf(String), or by type using enumValueOf, 
 therefore iterating over enum values is easy.
-It is most convenient to define an extension function,
+It is most convenient to define an extension function:
 
+```kotlin
 import java.math.BigDecimal
 //Enum Declaration
 
@@ -41,14 +43,14 @@ fun main() {
     val total = carChoices.CHEVROLET
     print(total.fee) // 0, because `fee` is per-item
 }
-
-
+```
 Sealed Classes are abstract classes with a concrete number of subclasses all defined.
 The advantage of sealed classes over enum is that subclasses can hold instance-specific data
 Each item can be either a class or an object (created using the object declaration).
 What sealed modifier does is that it is impossible to define another subclass of this class 
 outside of the file.
 
+```kotlin
 import java.math.BigDecimal
 
 //Sealed class 
@@ -73,3 +75,4 @@ fun process(rental: CarRental) {
     }
     println(rentalReceipt)
 }
+```
