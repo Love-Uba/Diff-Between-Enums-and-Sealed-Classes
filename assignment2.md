@@ -1,7 +1,7 @@
 Lazy: 
 This entails deferring of a variable initialization till a later time, meaning you do not need to create the object until you need it and the object will only be created when its called. Since this is declared using val and initialization Is done at most once when it is called, it is suitable when you need a single instance of a variable repeatedly accessed but not changed.
 
-```
+```kotlin
 class SeaObjectsClass {
 
 //some cases may not require this object of the class
@@ -52,9 +52,9 @@ var myAge = 45
 //one year later...
 
 MyAge += 1
-```
+
 
 //value of my age is incremented by one and a new value is reassigned
 
 println(myAge) //outputs 46
-
+```
